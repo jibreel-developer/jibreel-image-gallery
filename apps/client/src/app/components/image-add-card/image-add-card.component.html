@@ -1,0 +1,39 @@
+<div class="card card-body shadow-sm">
+  <div class="d-flex flex-column">
+    <div
+      class="align-self-stretch bg-dark d-flex flex-column justify-content-center align-items-center position-relative"
+      style="flex-basis: 200px; background-size: cover;"
+      [ngStyle]="{ 'background-image': 'url(' + imageInBase64 + ')' }"
+    >
+      <h2 class="text-muted">+</h2>
+      <p class="text-light small mb-0">Drop or Click</p>
+      <input
+        type="file"
+        class="position-absolute w-100 h-100"
+        style="opacity: 0;"
+        name="image"
+        (change)="onInputChange($event)"
+      />
+    </div>
+    <div class="pt-3 flex-grow-1 d-flex flex-column">
+      <div class="form-group">
+        <label>Title</label>
+        <input
+          class="form-control"
+          name="title"
+          (keyup)="onInputChange($event)"
+        />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          class="form-control"
+          style="resize: none;"
+          rows="3"
+          name="description"
+          (keyup)="onInputChange($event)"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>

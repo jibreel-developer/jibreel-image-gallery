@@ -1,0 +1,8 @@
+command sequence
+1. npm run pre:start
+2. npm run start <- it takes little longer time
+3. app runs at -> http://localhost:8080
+
+login credentials
+username: jibreel
+password: jibi12

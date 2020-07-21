@@ -1,0 +1,20 @@
+{
+	"name": "stock-management",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {
+		"concurrently": "^5.0.2",
+		"redbird": "^0.10.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "concurrently --kill-others \"npm run start:server\" \"npm run start:client\" \"node .\"",
+		"start:server": "npm start --prefix ./apps/server",
+		"start:client": "npm run --prefix ./apps/client start",
+		"pre:start": "npm install && npm --prefix ./apps/server install && npm --prefix ./apps/client install"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}

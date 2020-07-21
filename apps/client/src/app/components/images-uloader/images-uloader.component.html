@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-12">
+		<p class="text-danger">Max iamge size: 5MB</p>
+	</div>
+  <div class="col-md-3" *ngFor="let c of counter; let $index = index">
+    <div class="pb-2 position-relative">
+      <app-image-add-card></app-image-add-card>
+      <button
+        class="close position-absolute"
+        style="font-size: 2.5em; right: 5px; top: 0px;"
+        (click)="counter.splice($index, 1)"
+        *ngIf="counter.length > 1"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+  <div class="col-6 col-sm-4 col-md-1 pb-2 align-self-center m-auto m-md-0">
+    <div
+      class="align-self-stretch bg-info d-flex flex-column justify-content-center align-items-center position-relative w-100 rounded"
+      style="cursor: pointer;"
+      #addButton
+      [ngStyle]="{ height: addButton.offsetWidth + 'px' }"
+      (click)="!submitting && counter.push(counter.length)"
+    >
+      <h2 class="text-white">+</h2>
+      <p class="text-white small mb-0">Add more</p>
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <button
+    class="btn btn-lg btn-primary btn-block"
+    (click)="onSubmit()"
+    [disabled]="!isAllFormValid() || submitting"
+  >
+    {{ submitting ? "Submitting..." : "Submit" }}
+  </button>
+</div>

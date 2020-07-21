@@ -1,0 +1,6 @@
+build a image gallery
+
+1. list of images in grid view, with sort by size, name
+2. add/upload image - single or multiple with title and description
+3. login / logout - session management
+4. list page will work without login, add will require login

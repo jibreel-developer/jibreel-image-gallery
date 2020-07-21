@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <a class="navbar-brand">Gallery</a>
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" routerLink="/list" routerLinkActive="active">
+      <a class="nav-link" style="cursor: pointer;">Home</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <button
+        type="button"
+        class="btn btn-outline-light"
+        (click)="openLoginPopup()"
+        *ngIf="!isLoggedIn"
+      >
+        Login
+      </button>
+    </li>
+    <ng-container *ngIf="isLoggedIn">
+      <li class="nav-item" routerLink="/add" routerLinkActive="active">
+        <a class="nav-link" style="cursor: pointer;">Add</a>
+      </li>
+      <li
+        class="nav-item active"
+        ngbDropdown
+        display="dynamic"
+        placement="bottom-right"
+      >
+        <a
+          class="nav-link dropdown-toggle"
+          style="cursor: pointer;"
+          ngbDropdownToggle
+          >{{ user?.username }}</a
+        >
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <button class="dropdown-item" (click)="logout()">Logout</button>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

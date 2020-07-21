@@ -1,0 +1,38 @@
+<div class="container-fluid py-3">
+  <p class="text-muted">Click to zome</p>
+  <div class="row">
+    <div class="col-12 pb-2">
+      <label class="mr-2">Sort by</label>
+      <div
+        class="btn-group btn-group-toggle"
+        ngbRadioGroup
+        [(ngModel)]="sortBy"
+      >
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="title" (change)="sort()" /> Title
+          / Name
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="size" (change)="sort()" /> Size
+        </label>
+      </div>
+    </div>
+    <div class="col-md-2" *ngFor="let image of images">
+      <div class="card" style="cursor: pointer;" (click)="zoomImage(image)">
+        <div
+          class="card-img-top"
+          style="flex-basis: 150px; background-size: cover;"
+          [ngStyle]="{
+            'background-image': 'url(' + baseUrl + image.path + ')'
+          }"
+        ></div>
+        <div class="card-body">
+          <h5 class="card-title">{{ image.title }}</h5>
+          <p class="card-text">
+            {{ image.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
